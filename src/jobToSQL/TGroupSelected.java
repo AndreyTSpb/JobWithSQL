@@ -45,10 +45,7 @@ public class TGroupSelected extends JobDB{
                     sb.append(" ,");
                 }
             }
-            System.out.println(sb.toString());
-            String sb1 = "eee";
-            System.out.println(sb1);
-            conditions[idStudents.length] = sb1;
+            conditions[idStudents.length] = String.format("`id_Student` NOT IN (%s)", sb);
         }
         //так как поля одни и теже в таблицах используем одно и тоже COLUMNS
         final String query = createStringInsertSelectSQL(TABLE_NAME, TStudents.TABLE_NAME, COLUMNS, COLUMNS, conditions);
